@@ -1,1 +1,2 @@
 Introdução a Framework Express do node.js
+Rotas, nesta aula você vai aprender a como trabalhar com rotas no framework Express.js, que é uma forma de definir as url e caminhos da sua aplicação Node.js.
