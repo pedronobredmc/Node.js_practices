@@ -1,0 +1,2 @@
+Iniciando aula de parametros em Node.js
+Parâmetros, nesta aula você vai aprender a como trabalhar com parâmetros em rotas utilizando o framework Express.js do Node.js para desenvolver sua aplicação web back-end utilizando Javascript.
