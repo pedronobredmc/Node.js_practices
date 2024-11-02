@@ -1,19 +1,40 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const handlebars = require('express-handlebars');
-const Sequelize = require('sequelize');
+const bodyParser = require('body-parser');
+const Post = require('./models/Post');
 
 // config
     // Template Engine
-    app.engine('handlebars', handlebars({defaultLayout: 'main'}));
+    app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}));
     app.set('view engine', 'handlebars');
-    // Conexão com o banco de dados
-    const sequelize = new Sequelize('sistemaDeCadastro', 'nobrega', "123456", {
-        host: 'localhost',  
-        dialect: 'mysql'    
-    });
+    // Body Parser
+    app.use(bodyParser.urlencoded({extended: false}));
+    app.use(bodyParser.json());
 // config fim
 
+// Rotas
+app.get('/cad', function(req, res){
+    res.render('formulario');
+});
+
+app.get('/', function(req, res){
+    res.render('home');
+});
+
+app.post('/add', function(req, res){
+    Post.create({
+        titulo:req.body.titulo,
+        conteudo:req.body.conteudo
+    }).then(function(){
+        res.redirect('/');
+    }).catch(function(erro){
+        res.send('Erro: ' + erro);
+    });
+});
+// Rotas fim
+
+// Inicialização do servidor
 app.listen(8081, function(){
     console.log('Servidor rodando na url http://localhost:8081');
 });
