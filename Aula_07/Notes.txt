@@ -1,0 +1,4 @@
+Como criar tabelas no MySQL, nesta aula, continuando nossa jornada no mundo do desenvolvimento web com javascript e node.js, você vai aprender a como criar tabelas no MySQL.
+Manipulando o MySQL, nesta aula você vai aprender a como trabalhar com os comandos insert, select e where, para manipular os seus bancos de dados para desenvolver web com Node.js
+Sequelize para utilização do banco de dados no node.js
+Como se conectar ao MySQL, nesta aula você vai aprender a como fazer uma conexão entre o Node.js com o Express.js ao MySQL, utilizando o Sequelize, o mesmo processo pode ser usado com outros SGDBs como Postgres e SQLServer.
