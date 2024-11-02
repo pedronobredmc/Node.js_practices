@@ -30,4 +30,41 @@ const Postagem = sequelize.define('postagens', {
 
 // Cria a tabela 'postagens' no banco de dados se ela não existir.
 // A opção { force: true } força a recriação da tabela, apagando dados anteriores.
-Postagem.sync({force: true});
+//Postagem.sync({force: true});
+
+// Cria uma nova entrada na tabela 'postagens' usando o modelo 'Postagem'.
+// O método 'create()' insere um novo registro no banco com os dados especificados.
+Postagem.create({
+    titulo: "Título da postagem",      // Atribui o valor "Título da postagem" ao campo 'titulo'.
+    conteudo: "Conteúdo da postagem"   // Atribui o valor "Conteúdo da postagem" ao campo 'conteudo'.
+});
+
+// Define um modelo chamado 'Usuario' para a tabela 'usuarios' no banco de dados.
+// Aqui são especificados os campos e seus tipos para esta tabela.
+const Usuario = sequelize.define('usuarios', {
+    nome: {
+        type: Sequelize.STRING       // Campo 'nome' do tipo STRING.
+    },
+    sobrenome: {
+        type: Sequelize.STRING       // Campo 'sobrenome' do tipo STRING.
+    },
+    idade: {
+        type: Sequelize.INTEGER      // Campo 'idade' do tipo INTEGER.
+    },
+    email: {
+        type: Sequelize.STRING       // Campo 'email' do tipo STRING.
+    }
+});
+
+// Cria a tabela 'usuarios' no banco de dados se ela não existir.
+// A opção { force: true } força a recriação da tabela, apagando dados anteriores.
+//Usuario.sync({force: true});
+
+// Cria uma nova entrada na tabela 'usuarios' usando o modelo 'Usuario'.
+// O método 'create()' insere um novo registro no banco com os dados especificados.
+Usuario.create({
+    nome: "Pedro",                     // Atribui o valor "Pedro" ao campo 'nome'.
+    sobrenome: "Nobrega",              // Atribui o valor "Nobrega" ao campo 'sobrenome'.
+    idade: 21,                         // Atribui o valor 21 ao campo 'idade'.
+    email: "pedronobrega656@gmail.com" // Atribui o valor "pedronobrega656@gmail.com" ao campo 'email'.
+});
