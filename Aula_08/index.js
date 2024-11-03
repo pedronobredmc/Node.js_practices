@@ -3,6 +3,7 @@ const app = express();
 const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const Post = require('./models/Post');
+const { where } = require("sequelize");
 
 // config
     // Template Engine
@@ -39,6 +40,15 @@ app.post('/add', function(req, res){
         res.redirect('/');
     }).catch(function(erro){
         res.send('Erro: ' + erro);
+    });
+});
+
+app.get('/deletar/:id', function(req, res){
+    Post.destroy({where: {'id': req.params.id}}).then(function(){
+        res.redirect('/');
+        //res.send('Postagem deletada com sucesso!');
+    }).catch(function(erro){
+        res.send('Esta postagem não existe!');
     });
 });
 // Rotas fim
