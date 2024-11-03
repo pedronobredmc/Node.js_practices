@@ -6,12 +6,19 @@ const Post = require('./models/Post');
 
 // config
     // Template Engine
-    app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}));
+    app.engine('handlebars', handlebars.engine({
+        defaultLayout: 'main',
+        runtimeOptions: {
+            allowProtoPropertiesByDefault: true,
+            allowProtoMethodsByDefault: true,
+        },
+    }));
     app.set('view engine', 'handlebars');
     // Body Parser
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(bodyParser.json());
 // config fim
+
 
 // Rotas
 app.get('/cad', function(req, res){
@@ -19,7 +26,9 @@ app.get('/cad', function(req, res){
 });
 
 app.get('/', function(req, res){
-    res.render('home');
+    Post.findAll().then(function(posts){
+        res.render('home', {posts: posts});
+    });
 });
 
 app.post('/add', function(req, res){
